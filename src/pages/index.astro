@@ -3,11 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import LondonWorldLogo from '../assets/london-world-logo.png';
 import LdnNewsLogo from '../assets/ldn-news-logo.png';
 import InnovatorPulseLogo from '../assets/innovator-pulse-logo.png';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import PlaceViewScreenshot from '../assets/place-view.png';
+import SearchListScreenshot from '../assets/search-list.png';
+import SitchListScreenshot from '../assets/sitch-list.png';
 ---
-
 <Layout title="Welcome to Sitch">
 	<main class="landing-page">
 		<!-- Hero Section -->
@@ -46,7 +45,7 @@ import InnovatorPulseLogo from '../assets/innovator-pulse-logo.png';
 	<h2 class="screenshots-title">See Sitch in Action</h2>
 	<div class="screenshots-grid">
 		<div class="screenshot-item">
-			<div class="screenshot-placeholder">Screenshot 1</div>
+			<img src={PlaceViewScreenshot.src}>
 		</div>
 		<div class="screenshot-item">
 			<div class="screenshot-placeholder">Screenshot 2</div>
