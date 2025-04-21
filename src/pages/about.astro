@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { ImageMetadata } from 'astro';
+import JoshuaProfile from '../assets/Joshua-Profile.jpeg';
+import OwenProfile from '../assets/Owen-Profile.jpg';
+import AndieProfile from '../assets/Andie-Profile.jpeg';
+
+const images: Record<string, ImageMetadata> = {
+	JoshuaProfile,
+	OwenProfile,
+	AndieProfile
+};
+---
+
+<Layout title="About Sitch">
+	<main class="about-page">
+		<!-- Product Section -->
+		<section class="product-section">
+			<div class="product-content">
+				<h1 class="section-title">About Sitch</h1>
+				<p class="product-description">
+					<b>We gives Londoners vibe-first food & drink recommendations and reservations in one place - simply put, defining the vibe of your day/night out and locking it in. </b>
+				</p>
+				<p class="product-description">
+					Named Sitch - after the phrase "So, What's the Sitch?" from Kim Possible - we're trying to help businesses boost their discoverability and popularity in this beautiful city, but also help Londoners go to the places they're really interested in, because the recommendations ultimately come from the people. 
+				</p>
+				<p class="product-description">
+					Right now, finding any place to eat or drink based on a vibe is fragmented because you use multiple platforms to get all the information to make your final decision. Sometimes, all that effort leads to disappointment because photos are old, reviews are outdated or menus aren't updated. Additionally, the hospitality industry is still recovering from the post-pandemic hangover as many establishments have been closing at an alarming rate.
+				</p>
+			</div>
+			<div class="product-image">
+				<div class="image-placeholder">
+					<span>Product Image</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Team Section -->
+		<section class="team-section">
+			<h2 class="section-title">Our Team</h2>
+			<div class="team-grid">
+
+				<div class="team-member">
+					<div class="member-image">
+						<img src={images.OwenProfile.src} alt="Owen" class="profile-image" />
+					</div>
+					<h3 class="member-name">Owen Cottan</h3>
+					<p class="member-role">Co-Founder and Chief Operating Officer</p>
+					<p class="member-bio">
+						3+ years of experience in marketing. Skillset in tech branding, strategy, and SEO. Reached over 4bn people through PR campaigns. Has worked with startups in the search and discovery, retail, and fintech industries. 
+					</p>
+				</div>
+
+				<div class="team-member">
+					<div class="member-image">
+						<img src={images.AndieProfile.src} alt="Andie" class="profile-image" />
+					</div>
+					<h3 class="member-name">Andrea De Vries</h3>
+					<p class="member-role">Chief Executive Officer and Co-Founder</p>
+					<p class="member-bio">
+						5+ years of experience in marketing. Skillset in AdTech, AI and data driven story-telling. Has worked with Adidas, Corona, and L'Oreal to build data-driven ad strategy. Is a micro-influencer on TikTok, with 450K+ likes. 
+					</p>
+				</div>
+
+				<div class="team-member">
+					<div class="member-image">
+						<img src={images.JoshuaProfile.src} alt="Joshua" class="profile-image" />
+					</div>
+					<h3 class="member-name">Joshua Lembong</h3>
+					<p class="member-role">Chief Technology Officer</p>
+					<p class="member-bio">
+						3 years of experience in software engineering. Skillset in backend and frontend development. Worked on the American Express iOS Application as well as other scalable microseverice applications.
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.about-page {
+		min-height: 100vh;
+		background: linear-gradient(to bottom, #000000, #1a1a1a);
+		color: white;
+		padding-top: 4rem;
+	}
+
+	/* Product Section */
+	.product-section {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		padding: 4rem 2rem;
+		max-width: 1400px;
+		margin: 0 auto;
+		align-items: center;
+	}
+
+	.product-content {
+		padding-right: 2rem;
+	}
+
+	.product-description {
+		font-size: 1.125rem;
+		line-height: 1.75;
+		color: #d1d5db;
+		margin-bottom: 1.5rem;
+	}
+
+	.product-image {
+		width: 100%;
+		aspect-ratio: 4/3;
+	}
+
+	.image-placeholder {
+		width: 100%;
+		height: 100%;
+		background: rgba(243, 194, 107, 0.1);
+		border: 2px dashed rgba(243, 194, 107, 0.3);
+		border-radius: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #F3C26B;
+		font-size: 1.25rem;
+	}
+
+	/* Team Section */
+	.team-section {
+		padding: 4rem 2rem;
+		background: rgba(0, 0, 0, 0.3);
+		border-radius: 1.5rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #F3C26B;
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.team-member {
+		text-align: center;
+		padding: 2rem;
+		background: rgba(243, 194, 107, 0.05);
+		border-radius: 1rem;
+		border: 1px solid rgba(243, 194, 107, 0.1);
+		transition: transform 0.3s ease;
+	}
+
+	.team-member:hover {
+		transform: translateY(-5px);
+	}
+
+	.member-image {
+		width: 100%;
+		aspect-ratio: 3/4;
+		margin-bottom: 1.5rem;
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+
+	.profile-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	.team-member:hover .profile-image {
+		transform: scale(1.05);
+	}
+
+	.member-name {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: #F3C26B;
+		margin-bottom: 0.5rem;
+	}
+
+	.member-role {
+		font-size: 1.125rem;
+		color: #9ca3af;
+		margin-bottom: 1rem;
+	}
+
+	.member-bio {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #d1d5db;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		.product-section {
+			grid-template-columns: 1fr;
+			padding: 2rem 1rem;
+		}
+
+		.product-content {
+			padding-right: 0;
+		}
+
+		.team-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.team-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.product-description {
+			font-size: 1rem;
+		}
+	}
+</style> 

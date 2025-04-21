@@ -1,11 +1,330 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import LondonWorldLogo from '../assets/london-world-logo.png';
+import LdnNewsLogo from '../assets/ldn-news-logo.png';
+import InnovatorPulseLogo from '../assets/innovator-pulse-logo.png';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Welcome to Sitch">
+	<main class="landing-page">
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-background">
+				<div class="overlay"></div>
+				<div class="gradient-overlay"></div>
+			</div>
+			
+			<div class="hero-content">
+				<h1 class="hero-title">
+					SITCH
+				</h1>
+				<p class="hero-subtitle">
+					Recommendations. Place lists. Bookings. All in one app.
+				</p>
+				<div class="app-store-button">
+					<a href="#" target="_blank" rel="noopener noreferrer">
+						<img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
+					</a>
+				</div>
+				<div class="hero-buttons">
+					<a href="#products" class="button button-primary">
+						Explore Products
+					</a>
+					<a href="#contact" class="button button-secondary">
+						Contact Us
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<section class="screenshots-section">
+	<h2 class="screenshots-title">See Sitch in Action</h2>
+	<div class="screenshots-grid">
+		<div class="screenshot-item">
+			<div class="screenshot-placeholder">Screenshot 1</div>
+		</div>
+		<div class="screenshot-item">
+			<div class="screenshot-placeholder">Screenshot 2</div>
+		</div>
+		<div class="screenshot-item">
+			<div class="screenshot-placeholder">Screenshot 3</div>
+		</div>
+	</div>
+</section>
+
+<section class="news-section">
+	<div class="gradient-overlay"></div>
+	<h2 class="news-title">As Featured In</h2>
+	<div class="news-logos">
+		<div class="news-logo">
+			<img src={LondonWorldLogo.src} alt="London World" />
+		</div>
+		<div class="news-logo">
+			<img src={LdnNewsLogo.src} alt="LDN News" />
+		</div>
+		<div class="news-logo">
+			<img src={InnovatorPulseLogo.src} alt="Innovator Pulse" />
+		</div>
+	</div>
+</section>
+
+<style>
+	.landing-page {
+		min-height: 100vh;
+		background: linear-gradient(to bottom, #000000, #1a1a1a);
+		color: white;
+		padding-top: 4rem; /* Account for fixed navbar */
+	}
+
+	/* Hero Section */
+	.hero {
+		position: relative;
+		height: calc(100vh - 4rem); /* Account for fixed navbar */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.hero-background {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+	}
+
+	.overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 10;
+	}
+
+	.gradient-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to right, rgba(243, 194, 107, 0.2), rgba(243, 194, 107, 0.1));
+		animation: gradient 15s ease infinite;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 10;
+		text-align: center;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.hero-title {
+		font-size: 4rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		animation: fade-in 1s ease-out forwards;
+		color: #F3C26B;
+	}
+
+	.hero-subtitle {
+		font-size: 1.5rem;
+		color: #d1d5db;
+		margin-bottom: 2rem;
+		max-width: 42rem;
+		margin-left: auto;
+		margin-right: auto;
+		animation: fade-in 1s ease-out 0.3s forwards;
+		opacity: 0;
+	}
+
+	.app-store-button {
+		margin-bottom: 2rem;
+		animation: fade-in 1s ease-out 0.4s forwards;
+		opacity: 0;
+	}
+
+	.app-store-button img {
+		height: 50px;
+		transition: transform 0.3s ease;
+	}
+
+	.app-store-button img:hover {
+		transform: scale(1.05);
+	}
+
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		animation: fade-in 1s ease-out 0.6s forwards;
+		opacity: 0;
+	}
+
+	.button {
+		padding: 0.75rem 2rem;
+		border-radius: 9999px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		text-decoration: none;
+	}
+
+	.button-primary {
+		background: #F3C26B;
+		color: #000000;
+	}
+
+	.button-primary:hover {
+		background: rgba(243, 194, 107, 0.9);
+	}
+
+	.button-secondary {
+		background: rgba(243, 194, 107, 0.1);
+		color: #F3C26B;
+		border: 2px solid #F3C26B;
+	}
+
+	.button-secondary:hover {
+		background: rgba(243, 194, 107, 0.2);
+	}
+
+	/* Animations */
+	@keyframes gradient {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+
+	@keyframes fade-in {
+		from { 
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Responsive Design */
+	@media (min-width: 768px) {
+		.hero-title {
+			font-size: 5rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.875rem;
+		}
+
+		.app-store-button img {
+			height: 60px;
+		}
+	}
+
+	.screenshots-section {
+		background: rgba(243, 194, 107, 0.05);
+		padding: 4rem 2rem;
+	}
+	.screenshots-title {
+		text-align: center;
+		color: #F3C26B;
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 2.5rem;
+	}
+	.screenshots-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.screenshot-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.screenshot-placeholder {
+		width: 100%;
+		aspect-ratio: 9/19;
+		background: rgba(243, 194, 107, 0.15);
+		border: 2px dashed #F3C26B;
+		border-radius: 1.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #F3C26B;
+		font-size: 1.25rem;
+		font-weight: 500;
+	}
+	@media (max-width: 1024px) {
+		.screenshots-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+
+	.news-section {
+		position: relative;
+		background: linear-gradient(to bottom, #000000, #1a1a1a);
+		padding: 3rem 2rem 4rem 2rem;
+		overflow: hidden;
+	}
+	.news-section .gradient-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to right, rgba(243, 194, 107, 0.2), rgba(243, 194, 107, 0.1));
+		pointer-events: none;
+		z-index: 0;
+		animation: gradient 15s ease infinite;
+	}
+	.news-section > *:not(.gradient-overlay) {
+		position: relative;
+		z-index: 1;
+	}
+	.news-title {
+		text-align: center;
+		color: #F3C26B;
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-bottom: 2rem;
+	}
+	.news-logos {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+	.news-logo {
+		flex: 1 1 0;
+		max-width: 320px;
+		min-width: 180px;
+		height: 80px;
+		background: white;
+		border: 2px solid #F3C26B;
+		border-radius: 0.75rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+	}
+	.news-logo img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+	@media (max-width: 900px) {
+		.news-logos {
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+		.news-logo {
+			max-width: 90vw;
+			width: 100%;
+		}
+	}
+</style>
