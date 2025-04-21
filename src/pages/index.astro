@@ -45,13 +45,13 @@ import SitchListScreenshot from '../assets/sitch-list.png';
 	<h2 class="screenshots-title">See Sitch in Action</h2>
 	<div class="screenshots-grid">
 		<div class="screenshot-item">
-			<img src={PlaceViewScreenshot.src}>
+			<img src={PlaceViewScreenshot.src} alt="Place View" class="screenshot-image" />
 		</div>
 		<div class="screenshot-item">
-			<div class="screenshot-placeholder">Screenshot 2</div>
+			<img src={SearchListScreenshot.src} alt="Search List" class="screenshot-image" />
 		</div>
 		<div class="screenshot-item">
-			<div class="screenshot-placeholder">Screenshot 3</div>
+			<img src={SitchListScreenshot.src} alt="Sitch List" class="screenshot-image" />
 		</div>
 	</div>
 </section>
@@ -243,24 +243,27 @@ import SitchListScreenshot from '../assets/sitch-list.png';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
-	.screenshot-placeholder {
-		width: 100%;
-		aspect-ratio: 9/19;
-		background: rgba(243, 194, 107, 0.15);
-		border: 2px dashed #F3C26B;
 		border-radius: 1.25rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #F3C26B;
-		font-size: 1.25rem;
-		font-weight: 500;
+		padding: 1rem;
+		transition: transform 0.3s ease;
+	}
+	.screenshot-item:hover {
+		transform: translateY(-5px);
+	}
+	.screenshot-image {
+		width: 100%;
+		height: auto;
+		max-height: 600px;
+		object-fit: contain;
+		border-radius: 0.75rem;
 	}
 	@media (max-width: 1024px) {
 		.screenshots-grid {
 			grid-template-columns: 1fr;
 			gap: 2rem;
+		}
+		.screenshot-image {
+			max-height: 500px;
 		}
 	}
 
