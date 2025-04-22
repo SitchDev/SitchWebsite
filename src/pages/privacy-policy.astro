@@ -133,6 +133,7 @@ import Layout from '../layouts/Layout.astro';
 		color: white;
 		padding-top: 4rem;
 	}
+    
 
 	.privacy-section {
 		padding: 4rem 2rem;
@@ -168,10 +169,19 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 1rem;
 	}
 
-	.policy-content ul {
+	.policy-content ol {
 		color: #d1d5db;
 		margin-bottom: 1.5rem;
 		padding-left: 1.5rem;
+	}
+
+	.policy-content ol a {
+		color: white;
+		transition: color 0.3s ease;
+	}
+
+	.policy-content ol a:hover {
+		color: #F3C26B;
 	}
 
 	.policy-content li {
