@@ -19,37 +19,6 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-		<script>
-			// Check if the current URL matches a Universal Link path
-			function isUniversalLink() {
-				return window.location.pathname.startsWith('/sitchList/');
-			}
-
-			// Check if the app is installed
-			function checkAppInstalled() {
-				// Generate app URL from the current pathname
-				const path = window.location.pathname;
-				const appUrl = `sitchapp://${path.substring(1)}`; // Remove leading slash
-				const startTime = Date.now();
-				window.location.href = appUrl;
-				
-				// If the app is not installed, the browser will stay on the page
-				// We'll use a timeout to detect this
-				setTimeout(function() {
-					if (Date.now() - startTime < 2000) {
-						// If we're still on the page after 2 seconds, redirect to App Store
-						window.location.href = 'https://apps.apple.com/gb/app/sitch-discover-and-book/id6711329163';
-					}
-				}, 2000);
-			}
-
-			// Run the check when the page loads
-			document.addEventListener('DOMContentLoaded', function() {
-				if (isUniversalLink()) {
-					checkAppInstalled();
-				}
-			});
-		</script>
 	</head>
 	<body>
 		<nav class="navbar">

@@ -6,12 +6,5 @@ export default defineConfig({
   output: 'static',
   build: {
     assets: '_assets'
-  },
-  server: {
-    headers: {
-      '/.well-known/apple-app-site-association': {
-        'Content-Type': 'application/json'
-      }
-    }
   }
 });

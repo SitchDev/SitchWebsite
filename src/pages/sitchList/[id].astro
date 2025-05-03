@@ -1,0 +1,31 @@
+---
+const { id } = Astro.params;
+const APP_STORE_URL = "https://apps.apple.com/gb/app/sitch-discover-and-book/id6711329163"; // Replace with your App Store ID
+---
+<html lang="en">
+  <head>
+    <title>Opening Sitch List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <main style="padding: 2rem; text-align: center;">
+      <h1>Opening your list in the app…</h1>
+      <p>If nothing happens, you’ll be redirected shortly.</p>
+    </main>
+
+    <script type="module">
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const isAndroid = /Android/i.test(navigator.userAgent);
+
+      // Give time for iOS to open app via Universal Link
+      setTimeout(() => {
+        if (isIOS) {
+          window.location.href = "{{APP_STORE_URL}}";
+        } else if (isAndroid) {
+          window.location.href = "{{ANDROID_URL}}";
+        }
+      }, 1500);
+    </script>
+  </body>
+</html>
