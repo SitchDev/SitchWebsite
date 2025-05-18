@@ -1,4 +1,5 @@
 ---
+export const prerender = false; // Not needed in 'server' mode
 const { id } = Astro.params;
 const APP_STORE_URL = "https://apps.apple.com/gb/app/sitch-discover-and-book/id6711329163"; // Replace with your App Store ID
 ---
@@ -12,18 +13,16 @@ const APP_STORE_URL = "https://apps.apple.com/gb/app/sitch-discover-and-book/id6
     <main style="padding: 2rem; text-align: center;">
       <h1>Opening your list in the app…</h1>
       <p>If nothing happens, you’ll be redirected shortly.</p>
+      <p>Note: We are still to release for Android. Our app only works on iOS for now.</p>
     </main>
 
     <script type="module">
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      const isAndroid = /Android/i.test(navigator.userAgent);
 
       // Give time for iOS to open app via Universal Link
       setTimeout(() => {
         if (isIOS) {
-          window.location.href = "{{APP_STORE_URL}}";
-        } else if (isAndroid) {
-          window.location.href = "{{ANDROID_URL}}";
+          window.location.href = "https://apps.apple.com/gb/app/sitch-discover-and-book/id6711329163";
         }
       }, 1500);
     </script>
