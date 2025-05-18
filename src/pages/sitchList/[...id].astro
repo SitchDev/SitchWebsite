@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+export const prerender = false;
+const { id } = Astro.params;
+---
+<Layout title="Opening Sitch List">
+	<main class="redirect-page">
+		<div class="content">
+			<h1 class="title">Taking you to Sitch…</h1>
+			<p class="subtitle">Don't have the app? No worries! Download it below or wait a moment to continue.</p>
+			<p class="note">iOS only • Android coming soon</p>
+			
+			<div class="app-store-button">
+				<a href="https://apps.apple.com/gb/app/sitch-discover-and-book/id6711329163" target="_blank" rel="noopener noreferrer">
+					<img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
+				</a>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.redirect-page {
+		min-height: 100vh;
+		background: linear-gradient(to bottom, #000000, #1a1a1a);
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+	}
+
+	.content {
+		text-align: center;
+		max-width: 600px;
+		animation: fade-in 1s ease-out forwards;
+	}
+
+	.title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: #F3C26B;
+	}
+
+	.subtitle {
+		font-size: 1.25rem;
+		color: #d1d5db;
+		margin-bottom: 1rem;
+	}
+
+	.note {
+		font-size: 1rem;
+		color: #9ca3af;
+		margin-bottom: 2rem;
+	}
+
+	.app-store-button {
+		margin-top: 2rem;
+	}
+
+	.app-store-button img {
+		height: 50px;
+		transition: transform 0.3s ease;
+	}
+
+	.app-store-button img:hover {
+		transform: scale(1.05);
+	}
+
+	@keyframes fade-in {
+		from { 
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (min-width: 768px) {
+		.title {
+			font-size: 3rem;
+		}
+
+		.subtitle {
+			font-size: 1.5rem;
+		}
+
+		.app-store-button img {
+			height: 60px;
+		}
+	}
+</style>
+
+<script>
+	const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+	// Give time for iOS to open app via Universal Link
+	setTimeout(() => {
+		if (isIOS) {
+			window.location.href = "https://apps.apple.com/gb/app/sitch-discover-and-book/id6711329163";
+		}
+	}, 1500);
+</script>
